@@ -3,559 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Copacetic Partners — The Marginmaxxing Playbook</title>
+  <title>The Marginmaxxing Stack — Copacetic Partners</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --black: #0a0a0a;
-      --off-black: #111111;
-      --card: #161616;
-      --border: #222222;
-      --green: #b8f000;
-      --green-dim: #8ab300;
-      --white: #f0f0f0;
-      --gray: #888888;
-      --light-gray: #444444;
+      --black: #080808;
+      --card: #111111;
+      --border: #1e1e1e;
+      --green: #c6f135;
+      --white: #efefef;
+      --gray: #777777;
+      --dim: #333333;
     }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; -webkit-font-smoothing: antialiased; }
 
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Barlow', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* NAV */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: var(--black);
-      z-index: 100;
-    }
-
-    .nav-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-    }
-
-    .nav-icons { display: flex; gap: 16px; align-items: center; }
-    .nav-icons a { color: var(--gray); text-decoration: none; transition: color 0.2s; font-size: 15px; }
-    .nav-icons a:hover { color: var(--green); }
+    nav { padding: 22px 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .nav-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
 
     /* HERO */
-    .hero {
-      padding: 100px 40px 60px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    .hero { padding: 100px 48px 60px; max-width: 1000px; margin: 0 auto; }
+    .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 28px; opacity: 0; animation: up 0.6s ease 0.1s both; }
+    .hero-hl { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(52px, 8.5vw, 100px); line-height: 0.93; text-transform: uppercase; margin-bottom: 36px; opacity: 0; animation: up 0.7s ease 0.2s both; }
+    .hero-hl .g { color: var(--green); }
+    .hero-body { font-size: 18px; color: var(--gray); max-width: 600px; line-height: 1.85; margin-bottom: 0; opacity: 0; animation: up 0.7s ease 0.35s both; }
+    .hero-body strong { color: var(--white); font-weight: 600; }
 
-    .hero-tag {
-      display: inline-block;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green);
-      border: 1px solid var(--green);
-      padding: 5px 12px;
-      margin-bottom: 32px;
-    }
+    /* STATS */
+    .stats { display: flex; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); max-width: 1000px; margin: 60px auto 0; opacity: 0; animation: up 0.7s ease 0.45s both; }
+    .stat { flex: 1; padding: 28px 32px; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-n { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 900; color: var(--green); line-height: 1; margin-bottom: 6px; }
+    .stat-l { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
 
-    .hero-stat {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(72px, 12vw, 140px);
-      line-height: 0.9;
-      color: var(--green);
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
+    /* SECTIONS */
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 80px 48px; }
+    .sec-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green); margin-bottom: 48px; }
 
-    .hero-headline {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.1;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 28px;
-      color: var(--white);
-    }
+    /* THREE PHASES */
+    .phases { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .phase { background: var(--card); padding: 36px 32px; }
+    .phase-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--green); margin-bottom: 12px; }
+    .phase-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 12px; }
+    .phase-body { font-size: 14px; color: var(--gray); line-height: 1.75; }
+    .phase-body strong { color: var(--white); }
 
-    .hero-sub {
-      font-size: 17px;
-      color: var(--gray);
-      max-width: 600px;
-      line-height: 1.75;
-      margin-bottom: 48px;
-    }
-
-    .hero-sub strong { color: var(--white); }
-
-    /* EMAIL FORM */
-    .form-wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 40px 80px;
-    }
-
-    .form-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 16px;
-    }
-
-    .form-row {
-      display: flex;
-      max-width: 520px;
-    }
-
-    .form-input {
-      flex: 1;
-      background: var(--off-black);
-      border: 1px solid var(--border);
-      border-right: none;
-      padding: 14px 20px;
-      font-family: 'Barlow', sans-serif;
-      font-size: 15px;
-      color: var(--white);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-input::placeholder { color: var(--light-gray); }
-    .form-input:focus { border-color: var(--green); }
-
-    .form-btn {
-      background: var(--green);
-      border: 1px solid var(--green);
-      padding: 14px 28px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--black);
-      cursor: pointer;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-
-    .form-btn:hover { background: var(--green-dim); }
-
-    .form-note {
-      font-size: 12px;
-      color: var(--light-gray);
-      margin-top: 12px;
-      letter-spacing: 0.05em;
-    }
-
-    /* DIVIDER */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      max-width: 900px;
-      margin: 0 auto 60px;
-    }
+    /* PULL QUOTE */
+    .pq { border-left: 3px solid var(--green); padding-left: 28px; margin: 0; }
+    .pq p { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(22px, 3vw, 32px); font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 14px; }
+    .pq cite { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); font-style: normal; }
 
     /* REAL ESTATE ANGLES */
-    .section {
-      max-width: 900px;
-      margin: 0 auto 80px;
-      padding: 0 40px;
-    }
+    .angle { display: flex; gap: 28px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+    .angle:first-child { border-top: 1px solid var(--border); }
+    .angle-n { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: var(--green); min-width: 32px; padding-top: 4px; }
+    .angle-title { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
+    .angle-body { font-size: 14px; color: var(--gray); line-height: 1.7; }
+    .angle-body strong { color: var(--white); }
 
-    .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 40px;
-    }
-
-    .angle-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .angle {
-      background: var(--card);
-      padding: 36px 32px;
-    }
-
-    .angle-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      color: var(--green);
-      margin-bottom: 12px;
-    }
-
-    .angle-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .angle-desc {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.65;
-    }
-
-    .angle-desc strong { color: var(--white); }
-
-    /* STATS ROW */
-    .stats {
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--border);
-      max-width: 900px;
-      margin: 0 auto 80px;
-    }
-
-    .stat {
-      flex: 1;
-      padding: 28px 24px;
-      border-right: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--green);
-      letter-spacing: -0.02em;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray);
-    }
+    /* MATH BANNER */
+    .math-banner { background: var(--green); padding: 32px 48px; display: flex; align-items: center; gap: 32px; margin: 0 -48px; }
+    .math-big { font-family: 'Barlow Condensed', sans-serif; font-size: 60px; font-weight: 900; color: var(--black); line-height: 1; white-space: nowrap; }
+    .math-txt { font-size: 15px; color: var(--black); font-weight: 500; line-height: 1.6; }
 
     /* TOOL STACK */
-    .tool-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .tool { display: grid; grid-template-columns: 40px 1fr auto; gap: 0 20px; align-items: start; padding: 26px 0; border-bottom: 1px solid var(--border); }
+    .tool:first-child { border-top: 1px solid var(--border); }
+    .tool-idx { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--dim); padding-top: 3px; }
+    .tool-name { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
+    .tool-desc { font-size: 13px; color: var(--gray); line-height: 1.65; max-width: 580px; }
+    .tool-desc strong { color: var(--white); }
+    .tool-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); border: 1px solid var(--green); padding: 4px 10px; white-space: nowrap; margin-top: 3px; }
 
-    .tool-row:first-child { border-top: 1px solid var(--border); }
+    /* NEW TAG */
+    .new-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--black); background: var(--green); padding: 2px 7px; margin-left: 10px; vertical-align: middle; }
 
-    .tool-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--light-gray);
-      min-width: 28px;
-      padding-top: 3px;
-    }
+    /* 3 LEVELS */
+    .levels { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .level { background: var(--card); padding: 28px 24px; }
+    .level-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .level-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+    .level-body { font-size: 12px; color: var(--gray); line-height: 1.65; }
+    .level-tools { font-size: 11px; color: var(--dim); margin-top: 12px; font-weight: 600; }
 
-    .tool-info { flex: 1; }
+    /* FORM */
+    .form-wrap { max-width: 1000px; margin: 0 auto; padding: 80px 48px; border-top: 1px solid var(--border); }
+    .form-hl { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 900; text-transform: uppercase; line-height: 1.05; margin-bottom: 14px; }
+    .form-sub { font-size: 15px; color: var(--gray); margin-bottom: 32px; max-width: 440px; line-height: 1.65; }
+    .form-row { display: flex; max-width: 480px; }
+    .f-input { flex: 1; background: #1a1a1a; border: 1px solid #555555; border-right: none; padding: 15px 18px; font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--white); outline: none; transition: border-color 0.2s; }
+    .f-input::placeholder { color: #888888; }
+    .f-input:focus { border-color: var(--green); }
+    .f-btn { background: var(--green); border: none; padding: 15px 26px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--black); cursor: pointer; transition: opacity 0.2s; }
+    .f-btn:hover { opacity: 0.85; }
+    .f-note { font-size: 11px; color: var(--dim); margin-top: 10px; }
+    .f-note.err { color: #ff5555; }
 
-    .tool-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
+    /* CLOSING */
+    .closing { max-width: 1000px; margin: 0 auto; padding: 80px 48px; border-top: 1px solid var(--border); }
+    .closing-txt { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(26px, 3.8vw, 40px); font-weight: 900; text-transform: uppercase; line-height: 1.15; color: var(--gray); }
+    .closing-txt span { color: var(--white); }
 
-    .tool-role {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    .tool-phase {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-      border: 1px solid var(--green);
-      padding: 4px 10px;
-      white-space: nowrap;
-      align-self: flex-start;
-      margin-top: 4px;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 40px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--light-gray);
-      letter-spacing: 0.08em;
-    }
-
-    footer a { color: var(--light-gray); text-decoration: none; }
+    footer { border-top: 1px solid var(--border); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--dim); letter-spacing: 0.08em; }
+    footer a { color: var(--dim); text-decoration: none; }
     footer a:hover { color: var(--green); }
 
-    /* MOBILE */
-    @media (max-width: 640px) {
-      nav { padding: 16px 20px; }
-      .hero { padding: 60px 20px 40px; }
-      .form-wrap { padding: 0 20px 60px; }
-      .section { padding: 0 20px; }
-      .angle-grid { grid-template-columns: 1fr; }
-      .form-row { flex-direction: column; }
-      .form-input { border-right: 1px solid var(--border); border-bottom: none; }
+    @keyframes up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 700px) {
+      nav { padding: 18px 20px; }
+      .hero { padding: 64px 20px 40px; }
+      .wrap { padding: 56px 20px; }
+      .phases { grid-template-columns: 1fr; }
+      .levels { grid-template-columns: 1fr; }
       .stats { flex-wrap: wrap; }
-      .stat { min-width: 50%; }
-    }
-
-    /* ANIMATIONS */
-    .hero-tag, .hero-stat, .hero-headline, .hero-sub { opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s ease both; }
-    .hero-tag { animation-delay: 0.1s; }
-    .hero-stat { animation-delay: 0.2s; }
-    .hero-headline { animation-delay: 0.3s; }
-    .hero-sub { animation-delay: 0.4s; }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+      .stat { min-width: 50%; border-bottom: 1px solid var(--border); }
+      .tool { grid-template-columns: 32px 1fr; }
+      .tool-badge { display: none; }
+      .math-banner { flex-direction: column; gap: 10px; padding: 24px 20px; margin: 0 -20px; }
+      .form-wrap { padding: 56px 20px; }
+      .form-row { flex-direction: column; max-width: 100%; }
+      .f-input { border-right: 1px solid var(--border); border-bottom: none; }
+      .closing { padding: 56px 20px; }
+      footer { padding: 20px; flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Copacetic Partners</div>
-  <div class="nav-icons">
-    <a href="https://www.instagram.com/nextwavenikolaz" target="_blank">IG</a>
-    <a href="https://www.tiktok.com/@nextwavenikolaz" target="_blank">TK</a>
+  <div class="nav-brand">Copacetic Partners</div>
+  <div class="nav-links">
+    <a href="/investor-tools">Free Playbook</a>
+    <a href="https://www.instagram.com/nextwavenikolaz" target="_blank">@nextwavenikolaz</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-tag">The Marginmaxxing Playbook</div>
-  <div class="hero-stat">$10T</div>
-  <h1 class="hero-headline">In boomer business sales.<br>Most buyers will miss it.</h1>
-  <p class="hero-sub">
-    92% of boomer business exits end in closure — not sale. Not because they failed. Because <strong>nobody bought them.</strong> The buyers who understand what AI does to margins and valuation will own the next generation of American business. Real estate is the sharpest entry point into this trade.
+<div class="hero">
+  <div class="eyebrow">How to Buy the Next Generation of American Business — Playbook</div>
+  <h1 class="hero-hl">
+    $84 trillion<br>
+    is changing hands.<br>
+    <span class="g">Who's buying?</span>
+  </h1>
+  <p class="hero-body">
+    This is the largest wealth transfer in modern history. <strong>$84 trillion changing hands</strong> and the businesses attached to that wealth are priced on what they cost to run today — not what they're worth after you marginmaxx with AI.</p>
+      <p class="hero-body" style="margin-top:20px;">According to McKinsey, 92% of those exits end in closure. Not sale. Not transfer. <strong>Closure.</strong> Not because they failed. Because nobody bought them.</p>
+      <p class="hero-body" style="margin-top:20px;">Real estate businesses are the sharpest entry point into this trade. The buyers who understand what AI does to margins will own the next generation. Frankly, everyone else will fall behind.
   </p>
-</section>
-
-<!-- FORM -->
-<div class="form-wrap">
-  <div class="form-label">Get the free playbook</div>
-  <div class="form-row">
-    <input type="email" class="form-input" id="emailInput" placeholder="your@email.com">
-    <button class="form-btn" onclick="handleSubmit()">Send It</button>
-  </div>
-  <div class="form-note" id="formMsg">The real estate marginmaxxing playbook — free. No spam.</div>
 </div>
 
-<hr class="divider">
-
-<!-- STATS -->
 <div class="stats">
-  <div class="stat">
-    <div class="stat-num">$84T</div>
-    <div class="stat-label">Wealth Transfer Underway</div>
+  <div class="stat"><div class="stat-n">$84T</div><div class="stat-l">Total wealth transfer underway</div></div>
+  <div class="stat"><div class="stat-n">92%</div><div class="stat-l">Boomer exits end in closure not sale</div></div>
+  <div class="stat"><div class="stat-n">$5T</div><div class="stat-l">Enterprise value hitting the market by 2035 — McKinsey</div></div>
+  <div class="stat"><div class="stat-n">10-25%</div><div class="stat-l">EBITDA improvement from AI across core workflows — Bain</div></div>
+</div>
+
+<!-- EMAIL FORM -->
+<div class="form-wrap">
+  <div class="form-hl">Get the full<br>playbook. Free.</div>
+  <p class="form-sub">The complete real estate marginmaxxing playbook — four plays, every tool, the exact math on why this is the trade of the decade.</p>
+  <div class="form-row">
+    <input type="email" class="f-input" id="emailInput" placeholder="your@email.com">
+    <button class="f-btn" onclick="go()">Send It</button>
   </div>
-  <div class="stat">
-    <div class="stat-num">4.1M</div>
-    <div class="stat-label">Boomers Retiring Per Year</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">92%</div>
-    <div class="stat-label">Exit in Closure Not Sale</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">$214</div>
-    <div class="stat-label">Monthly Cost of the Full Stack</div>
+  <div class="f-note" id="note">No spam. One email. Real value.</div>
+</div>
+
+<!-- THREE PHASES -->
+<div class="wrap">
+  <div class="sec-label">The Play — Three Moves</div>
+  <div class="phases">
+    <div class="phase">
+      <div class="phase-num">01 — Find It</div>
+      <div class="phase-title">The Gap Nobody Sees</div>
+      <div class="phase-body">Boomer owners price their real estate businesses on <strong>today's labor-heavy operations.</strong> Property management companies. Mortgage brokerages. Real estate brokerages. Development firms. Title companies. All running on owner relationships and spreadsheets. The valuation reflects the old way of running it. <strong>Build the system around it and the multiple expands.</strong> That gap is the trade.</div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">02 — Fund It</div>
+      <div class="phase-title">Capital Without the IR Team</div>
+      <div class="phase-body">The pipeline finds them. The sequence reaches them. The calendar fills itself. <strong>The time you used to spend on outreach is yours again</strong> — for the deals, the relationships, and the life you're building.</div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">03 — Marginmaxx It</div>
+      <div class="phase-title">The System Runs the Business</div>
+      <div class="phase-body">Deploy the agent stack. Every call answered. Every report generated. Every follow-up sent. <strong>The business runs. You live.</strong> Margins expand. Valuation doubles or triples. The seller built a business on their time. You built a system that gives yours back.</div>
+    </div>
+    <div class="phase">
+      <div class="phase-num">The Math</div>
+      <div class="phase-title">200 Basis Points = 40% Jump</div>
+      <div class="phase-body">A 200 basis point EBITDA improvement on a 5% margin business is a <strong>40% jump in profitability.</strong> Bain: companies scaling AI across core workflows see 10-25% EBITDA improvement. Property management sells at 3x-7x EBITDA. <strong>Owner dependency determines which end. Fix it. Capture the spread.</strong></div>
+    </div>
   </div>
 </div>
 
-<!-- FOUR ANGLES -->
-<section class="section">
-  <div class="section-label">Four Real Estate Plays. One System.</div>
-  <div class="angle-grid">
-    <div class="angle">
-      <div class="angle-num">01</div>
+<!-- PULL QUOTE -->
+<div class="wrap" style="padding-top:0;">
+  <div class="pq">
+    <p>"The winners of the AI age are going to be the ones with the highest agency and the strongest sense of wonder about what to do with this space."</p>
+    <cite>Allie K. Miller — Time100 AI, former Global Head of ML at Amazon Web Services</cite>
+  </div>
+</div>
+
+<!-- REAL ESTATE ANGLES -->
+<div class="wrap" style="padding-top:0;">
+  <div class="sec-label">Four Real Estate Plays. One System.</div>
+
+  <div class="angle">
+    <div class="angle-n">01</div>
+    <div>
       <div class="angle-title">The Acquisition Play</div>
-      <div class="angle-desc">Property management companies, mortgage brokerages, real estate brokerages, title companies. Priced on <strong>today's labor costs</strong> — not what they're worth after the system is in. The gap between current valuation and post-marginmaxx valuation is where the deal lives.</div>
-    </div>
-    <div class="angle">
-      <div class="angle-num">02</div>
-      <div class="angle-title">Hard Asset Lending</div>
-      <div class="angle-desc">First position lending backed by real estate. <strong>BlackRock gated $4.6B</strong> and investors couldn't get out. Hard assets don't have redemption limits. Double-digit returns, guaranteed, backed by real collateral. The safest capital play most people never find.</div>
-    </div>
-    <div class="angle">
-      <div class="angle-num">03</div>
-      <div class="angle-title">AI Modernization</div>
-      <div class="angle-desc">Property management, brokerages, development firms — all running on spreadsheets and owner relationships in 2026. <strong>Labor costs are 60-70% of revenue.</strong> That's the margin hiding in plain sight. Deploy the agent stack. EBITDA expands. Valuation doubles.</div>
-    </div>
-    <div class="angle">
-      <div class="angle-num">04</div>
-      <div class="angle-title">The Double Asset Play</div>
-      <div class="angle-desc">The boomer who owns both the building <strong>and</strong> the business inside it. A property management company with 300 units where the owner also owns six of those buildings. <strong>Two appreciating assets.</strong> One conversation. Nobody is talking about buying both.</div>
+      <div class="angle-body">Property management. Mortgage brokerages. Real estate brokerages. Development firms. All priced on labor — not what they're worth after the system is in. <strong>Property management sells at 3x-7x EBITDA.</strong> Owner dependency determines which end. Remove the owner, capture the spread. The most repeatable trade in this cycle.</div>
     </div>
   </div>
-</section>
+
+  <div class="angle">
+    <div class="angle-n">02</div>
+    <div>
+      <div class="angle-title">Hard Asset Lending</div>
+      <div class="angle-body"><strong>BlackRock gated $4.6 billion.</strong> Investors couldn't get their money out. Hard assets don't have redemption limits. First position lending backed by real estate — double-digit returns, guaranteed, 30% equity cushion. The safest capital play most people never find because nobody built the automated pipeline to reach the investors who need it.</div>
+    </div>
+  </div>
+
+  <div class="angle">
+    <div class="angle-n">03</div>
+    <div>
+      <div class="angle-title">AI Modernization</div>
+      <div class="angle-body">You don't need to buy to marginmaxx. <strong>Charge for the implementation. Own the system on retainer.</strong> Property management companies still running on spreadsheets in 2026. Mortgage brokerages using manual loan processing. Development firms tracking milestones in email threads. $2,500-$10,000 setup fee. Monthly retainer. Three to five clients and you've replaced a W2.</div>
+    </div>
+  </div>
+
+  <div class="angle">
+    <div class="angle-n">04</div>
+    <div>
+      <div class="angle-title">The Double Asset Play</div>
+      <div class="angle-body">The boomer who owns the building <strong>and</strong> the business inside it. A property management company with 300 units where the owner also owns six of those buildings. <strong>Two appreciating assets. One conversation.</strong> First-time homebuyer average age is now 40. Home prices are 6x median income. You can't afford the house. You can afford the business that finances, sells, and manages them.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 3 LEVELS -->
+<div class="wrap">
+  <div class="sec-label">Three Levels of AI. Most People Never Leave Level One.</div>
+  <div class="levels">
+    <div class="level">
+      <div class="level-tag">Level 1 — Chat</div>
+      <div class="level-title">Most People Stop Here</div>
+      <div class="level-body">Ask a question. Get an answer. Most people use AI like a smarter Google and wonder why nothing changes in their business.</div>
+      <div class="level-tools">Claude · ChatGPT · Perplexity</div>
+    </div>
+    <div class="level">
+      <div class="level-tag">Level 2 — Automation</div>
+      <div class="level-title">Stop Asking. Start Connecting.</div>
+      <div class="level-body">Built once. Runs forever. Every booking, every update, every notification — handled. <strong>You get your evenings back.</strong></div>
+      <div class="level-tools">Zapier · n8n · Make.com</div>
+    </div>
+    <div class="level">
+      <div class="level-tag">Level 3 — Agents</div>
+      <div class="level-title">Give It a Task. Walk Away.</div>
+      <div class="level-body">The agent works. You live. VAPI takes the call. Manus does the research. OpenClaw manages the inbox. <strong>You come back to a full pipeline and an open calendar.</strong></div>
+      <div class="level-tools">Manus · VAPI · OpenClaw</div>
+    </div>
+  </div>
+</div>
 
 <!-- TOOL STACK -->
-<section class="section">
-  <div class="section-label">The Stack — 8 Tools. $214/Month.</div>
+<div class="wrap" style="padding-top:0;">
+  <div class="sec-label">The Full Stack — Find It. Fund It. Marginmaxx It.</div>
 
-  <div class="tool-row">
-    <div class="tool-num">01</div>
-    <div class="tool-info">
+  <div style="font-size:13px;color:var(--gray);margin-bottom:36px;max-width:620px;line-height:1.7;">Five layers. Every layer matters. Skip one and the system breaks. Most people have one tool and call it a strategy.</div>
+
+  <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Layer 1 — Source, Enrich, Verify</div>
+
+  <div class="tool">
+    <div class="tool-idx">01</div>
+    <div>
+      <div class="tool-name">Grata <span class="new-tag">New</span></div>
+      <div class="tool-desc">Private market intelligence. <strong>21M+ private companies.</strong> Find boomer-owned property management firms, mortgage brokerages, and real estate businesses before anyone else sees them. AI reads company websites like an analyst — interpreting business model, ownership signals, and exit readiness. This is how you find the deal before it hits a broker.</div>
+    </div>
+    <div class="tool-badge">Find It</div>
+  </div>
+
+  <div class="tool">
+    <div class="tool-idx">02</div>
+    <div>
       <div class="tool-name">Apollo.io</div>
-      <div class="tool-role">Source verified contacts at scale. GPs, fund managers, real estate syndicators, family offices. Filter by title, industry, and firm type. 500+ qualified leads exported in minutes.</div>
+      <div class="tool-desc">Contact sourcing at scale. GPs, Investment Managers, family office principals, hard money fund operators, real estate syndicators. <strong>210M+ contacts. 65+ filters.</strong> Buying intent signals flag who is actively researching right now. Always export from the Net New tab — no duplicates.</div>
     </div>
-    <div class="tool-phase">Find It</div>
+    <div class="tool-badge">Find It</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">02</div>
-    <div class="tool-info">
-      <div class="tool-name">Clay</div>
-      <div class="tool-role">Waterfall enrichment on every contact. Verified work emails. Intent signals. What comes out is a precision list — not a raw dump. Always upload Clay's Work Email column to Instantly, not Apollo's raw field.</div>
-    </div>
-    <div class="tool-phase">Find It</div>
-  </div>
 
-  <div class="tool-row">
-    <div class="tool-num">03</div>
-    <div class="tool-info">
-      <div class="tool-name">Instantly.ai</div>
-      <div class="tool-role">Cold outreach at scale with inbox-optimized delivery. Text-only, 25 sends per day per sender, open and click tracking off. Traditional IR teams charge $2K per meeting booked. This does it for under $20.</div>
-    </div>
-    <div class="tool-phase">Fund It</div>
-  </div>
 
-  <div class="tool-row">
-    <div class="tool-num">04</div>
-    <div class="tool-info">
-      <div class="tool-name">Claude</div>
-      <div class="tool-role">Writes personalized outreach, audits business operations, builds AI modernization roadmaps, and analyzes deals. The intelligence layer across every phase — from first email to post-acquisition system design.</div>
-    </div>
-    <div class="tool-phase">All Phases</div>
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-txt">
+    <span>The boomer built a business on their time.</span><br>
+    You built a system that gives yours back.<br><br>
+    <span>Everyone chased the asset.</span><br>
+    You bought the freedom behind it.
   </div>
-
-  <div class="tool-row">
-    <div class="tool-num">05</div>
-    <div class="tool-info">
-      <div class="tool-name">VAPI</div>
-      <div class="tool-role">AI voice agent that answers inbound calls 24 hours a day. Property management inbound lines, brokerage lead calls, fund inquiry calls — answered, qualified, and routed without a human picking up.</div>
-    </div>
-    <div class="tool-phase">Marginmaxx It</div>
-  </div>
-
-  <div class="tool-row">
-    <div class="tool-num">06</div>
-    <div class="tool-info">
-      <div class="tool-name">Manus</div>
-      <div class="tool-role">Level 3 agent — give it a task and walk away. Weekly Apollo searches, performance reports, off-market deal research, investor intelligence briefs. Zero manual input required.</div>
-    </div>
-    <div class="tool-phase">All Phases</div>
-  </div>
-
-  <div class="tool-row">
-    <div class="tool-num">07</div>
-    <div class="tool-info">
-      <div class="tool-name">Zapier</div>
-      <div class="tool-role">The connective tissue. Calendly booking fires a zap. Airtable row created. You get notified. The loop closes automatically every time a lead converts. Set it once. Never touch it again.</div>
-    </div>
-    <div class="tool-phase">Fund It</div>
-  </div>
-
-  <div class="tool-row">
-    <div class="tool-num">08</div>
-    <div class="tool-info">
-      <div class="tool-name">Airtable</div>
-      <div class="tool-role">The CRM. Every contact, call status, and capital committed tracked in one place. Updated automatically from Calendly bookings via Zapier. Always know exactly where the pipeline stands.</div>
-    </div>
-    <div class="tool-phase">Fund It</div>
-  </div>
-
-</section>
+</div>
 
 <footer>
-  <p>© 2026 Copacetic Partners &nbsp;·&nbsp; <a href="https://copaceticpartners.com">copaceticpartners.com</a></p>
+  <span>© 2026 Copacetic Partners</span>
+  <span><a href="/investor-tools">Free Playbook</a> &nbsp;·&nbsp; <a href="https://copaceticpartners.com">Home</a></span>
 </footer>
 
 <script>
-  function handleSubmit() {
+  function go() {
     var email = document.getElementById('emailInput').value;
-    var msg = document.getElementById('formMsg');
-    var btn = document.querySelector('.form-btn');
-
-    if (!email || !email.includes('@') || !email.includes('.')) {
-      msg.style.color = '#ff4444';
-      msg.textContent = 'Please enter a valid email address.';
+    var note = document.getElementById('note');
+    var btn = document.querySelector('.f-btn');
+    if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+      note.textContent = 'Please enter a valid email address.';
+      note.className = 'f-note err';
       return;
     }
-
     btn.textContent = '...';
     btn.disabled = true;
-
+    note.textContent = '';
     var fd = new FormData();
     fd.append('email', email);
-
-    fetch('https://formspree.io/f/xaqdrjep', {
-      method: 'POST',
-      body: fd,
-      headers: { 'Accept': 'application/json' }
-    });
-
+    fetch('https://formspree.io/f/xaqdrjep', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
     setTimeout(function() {
-      document.querySelector('.form-wrap').innerHTML = '<div style="font-family:Barlow Condensed,sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#b8f000;padding-bottom:60px;">Playbook sent. Check your inbox.</div>';
+      document.querySelector('.form-wrap').innerHTML = '<div style="font-family:Barlow Condensed,sans-serif;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#c6f135;padding:80px 48px;">Playbook sent. Check your inbox.</div>';
     }, 400);
   }
-
-  document.getElementById('emailInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') handleSubmit();
-  });
+  document.getElementById('emailInput').addEventListener('keydown', function(e) { if (e.key === 'Enter') go(); });
 </script>
 
 </body>

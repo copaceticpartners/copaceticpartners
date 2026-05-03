@@ -8,415 +8,133 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --black: #0a0a0a;
-      --off-black: #111111;
-      --card: #161616;
-      --border: #222222;
-      --green: #b8f000;
-      --green-dim: #8ab300;
-      --white: #f0f0f0;
-      --gray: #888888;
-      --light-gray: #444444;
+      --black: #080808;
+      --card: #111111;
+      --border: #1e1e1e;
+      --green: #c6f135;
+      --white: #efefef;
+      --gray: #777777;
+      --dim: #333333;
     }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; -webkit-font-smoothing: antialiased; }
 
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Barlow', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-    }
+    nav { padding: 22px 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+    .nav-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
 
     /* HERO */
-    .hero {
-      padding: 80px 40px 60px;
-      max-width: 900px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green);
-      border: 1px solid var(--green);
-      padding: 5px 12px;
-      margin-bottom: 32px;
-    }
-
-    .hero h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(44px, 7vw, 80px);
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      margin-bottom: 28px;
-    }
-
+    .hero { padding: 80px 48px 60px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 28px; }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(44px, 7vw, 80px); line-height: 0.95; text-transform: uppercase; margin-bottom: 28px; }
     .hero h1 span { color: var(--green); }
-
-    .hero-sub {
-      font-size: 17px;
-      color: var(--gray);
-      max-width: 580px;
-      line-height: 1.75;
-    }
-
+    .hero-sub { font-size: 17px; color: var(--gray); max-width: 580px; line-height: 1.8; }
     .hero-sub strong { color: var(--white); }
 
-    /* SECTION */
-    .section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(28px, 4vw, 40px);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.01em;
-      margin-bottom: 40px;
-      line-height: 1.1;
-    }
+    /* WRAP */
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 72px 48px; border-bottom: 1px solid var(--border); }
+    .wrap:last-of-type { border-bottom: none; }
+    .sec-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .sec-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 42px); font-weight: 900; text-transform: uppercase; line-height: 1.05; margin-bottom: 40px; }
 
     /* PLAY BLOCKS */
-    .play {
-      margin-bottom: 56px;
-    }
-
+    .play { margin-bottom: 64px; }
     .play:last-child { margin-bottom: 0; }
+    .play-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--green); margin-bottom: 10px; }
+    .play-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+    .play-body { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 20px; }
+    .play-body strong { color: var(--white); }
 
-    .play-header {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 16px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .play-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--green);
-    }
-
-    .play-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 26px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .play-sub {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .play-sub strong { color: var(--white); }
-
-    /* BUSINESS TYPES */
-    .biz-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .biz-tag {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border: 1px solid var(--border);
-      color: var(--gray);
-    }
+    /* BIZ TAGS */
+    .biz-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .biz-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border: 1px solid var(--border); color: var(--gray); }
 
     /* TOOL BREAKDOWN */
-    .tool-breakdown {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 24px;
-    }
+    .tool-box { background: var(--card); border: 1px solid var(--border); padding: 24px; }
+    .tool-box-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .tl { display: flex; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .tl:last-child { border-bottom: none; padding-bottom: 0; }
+    .tl-name { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); min-width: 110px; padding-top: 1px; }
+    .tl-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+    .tl-desc strong { color: var(--white); }
 
-    .tool-breakdown-title {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 16px;
-    }
+    /* MATH BOX */
+    .math-box { border: 1px solid var(--green); padding: 22px 28px; margin-top: 24px; display: flex; align-items: center; gap: 20px; }
+    .math-n { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: var(--green); line-height: 1; white-space: nowrap; }
+    .math-l { font-size: 14px; color: var(--gray); line-height: 1.55; }
+    .math-l strong { color: var(--white); }
 
-    .tool-line {
-      display: flex;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: flex-start;
-    }
+    /* FULL STACK */
+    .layer-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin: 36px 0 16px; }
+    .layer-label:first-of-type { margin-top: 0; }
+    .tool { display: grid; grid-template-columns: 40px 1fr auto; gap: 0 20px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .tool:first-of-type { border-top: 1px solid var(--border); }
+    .tool-idx { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--dim); padding-top: 3px; }
+    .tool-name { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
+    .tool-desc { font-size: 13px; color: var(--gray); line-height: 1.65; }
+    .tool-desc strong { color: var(--white); }
+    .tool-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); border: 1px solid var(--green); padding: 4px 10px; white-space: nowrap; margin-top: 3px; }
 
-    .tool-line:last-child { border-bottom: none; padding-bottom: 0; }
+    /* HOW IT RUNS */
+    .step { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .step:first-child { border-top: 1px solid var(--border); }
+    .step-n { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--green); min-width: 28px; padding-top: 2px; }
+    .step-body { font-size: 14px; color: var(--gray); line-height: 1.7; }
+    .step-body strong { color: var(--white); }
 
-    .tool-line-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--green);
-      min-width: 100px;
-    }
+    /* CLOSING */
+    .closing { max-width: 1000px; margin: 0 auto; padding: 72px 48px; border-top: 1px solid var(--border); }
+    .closing-txt { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(24px, 3.5vw, 38px); font-weight: 900; text-transform: uppercase; line-height: 1.15; color: var(--gray); }
+    .closing-txt span { color: var(--white); }
 
-    .tool-line-desc {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    /* MATH CALLOUT */
-    .math-box {
-      border: 1px solid var(--green);
-      padding: 20px 24px;
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .math-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 40px;
-      font-weight: 900;
-      color: var(--green);
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .math-label {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-
-    .math-label strong { color: var(--white); }
-
-    /* FULL TOOL STACK */
-    .tool-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .tool-row:first-child { border-top: 1px solid var(--border); }
-
-    .tool-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--light-gray);
-      min-width: 28px;
-      padding-top: 3px;
-    }
-
-    .tool-name {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .tool-desc {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    .tool-phase {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green);
-      border: 1px solid var(--green);
-      padding: 4px 10px;
-      white-space: nowrap;
-      align-self: flex-start;
-      margin-top: 4px;
-    }
-
-    /* COST */
-    .cost-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 32px;
-    }
-
-    .cost-card {
-      background: var(--card);
-      padding: 24px 20px;
-      text-align: center;
-    }
-
-    .cost-card-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-
-    .cost-card-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--green);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .cost-card-sub {
-      font-size: 11px;
-      color: var(--light-gray);
-    }
-
-    /* STEP LIST */
-    .step-list { list-style: none; }
-
-    .step-item {
-      display: flex;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-      align-items: flex-start;
-    }
-
-    .step-item:first-child { border-top: 1px solid var(--border); }
-
-    .step-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--green);
-      min-width: 28px;
-      padding-top: 2px;
-    }
-
-    .step-text {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.65;
-    }
-
-    .step-text strong { color: var(--white); }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 40px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--light-gray);
-      letter-spacing: 0.08em;
-    }
-
-    footer a { color: var(--light-gray); text-decoration: none; }
+    footer { border-top: 1px solid var(--border); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--dim); letter-spacing: 0.08em; }
+    footer a { color: var(--dim); text-decoration: none; }
     footer a:hover { color: var(--green); }
 
-    @media (max-width: 640px) {
-      nav { padding: 16px 20px; }
+    @media (max-width: 680px) {
+      nav { padding: 18px 20px; }
       .hero { padding: 48px 20px 40px; }
-      .section { padding: 40px 20px; }
-      .cost-grid { grid-template-columns: 1fr 1fr; }
+      .wrap { padding: 48px 20px; }
       .math-box { flex-direction: column; gap: 8px; }
+      .tool { grid-template-columns: 32px 1fr; }
+      .tool-badge { display: none; }
+      .closing { padding: 48px 20px; }
+      footer { padding: 20px; flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Copacetic Partners</div>
+  <div class="nav-brand">Copacetic Partners</div>
+  <div class="nav-links">
+    <a href="/stack">Full Stack Guide</a>
+    <a href="https://www.instagram.com/nextwavenikolaz" target="_blank">@nextwavenikolaz</a>
+  </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">Free Access — Full Playbook</div>
+  <div class="eyebrow">Free Access — Full Playbook</div>
   <h1>The Real Estate<br><span>Marginmaxxing</span><br>Playbook</h1>
   <p class="hero-sub">
-    Boomers are selling real estate businesses priced on <strong>today's labor costs</strong> — not what those businesses are worth after the system is in. This is the complete playbook. Four plays. Eight tools. The exact math on why the opportunity is bigger than anyone is talking about.
+    $84 trillion is changing hands. Real estate businesses are priced on what they cost to run today — <strong>not what they're worth after you marginmaxx with AI.</strong> This is the complete playbook. Four plays. The full tool stack. The exact math. And the system that gives you your time back to build the life you actually want.
   </p>
 </section>
 
 <!-- PLAY 01 -->
-<section class="section">
-  <div class="section-label">Play 01</div>
-  <div class="section-title">The Acquisition Play</div>
+<div class="wrap">
+  <div class="sec-label">Play 01</div>
+  <div class="sec-title">The Acquisition Play</div>
 
   <div class="play">
-    <p class="play-sub">
-      Real estate businesses are priced on owner dependency and labor-intensive operations. Remove the owner. Deploy the agent stack. The multiple expands — and you didn't change a single product or service. <strong>Property management companies sell at 3x-7x EBITDA.</strong> Owner dependency determines which end. Fix the dependency, capture the spread.
+    <p class="play-body">
+      Real estate businesses are priced on owner dependency and manual operations. <strong>Build the system around it and the multiple expands.</strong> You didn't change a single product or service. Property management companies sell at 3x-7x EBITDA. Owner dependency determines which end. Build the system, capture the spread.
     </p>
 
-    <div class="biz-list">
+    <div class="biz-tags">
       <div class="biz-tag">Property Management</div>
       <div class="biz-tag">Mortgage Brokerages</div>
       <div class="biz-tag">Real Estate Brokerages</div>
@@ -424,287 +142,355 @@
       <div class="biz-tag">Title Companies</div>
     </div>
 
-    <div class="tool-breakdown">
-      <div class="tool-breakdown-title">The Modernization Stack — Per Business Type</div>
+    <div class="tool-box">
+      <div class="tool-box-label">The AI Modernization Stack — By Business Type</div>
 
-      <div class="tool-line">
-        <div class="tool-line-name">Property Mgmt</div>
-        <div class="tool-line-desc">VAPI answers inbound calls 24/7. Manus handles tenant comms and maintenance triage. Instantly runs lease renewal sequences. Owner goes from operator to owner.</div>
+      <div class="tl">
+        <div class="tl-name">Property Mgmt</div>
+        <div class="tl-desc">
+          Tenant screening that used to take 3 days now takes 30 minutes — AI analyzes credit, rental history, and income stability automatically. Predictive maintenance AI monitors HVAC, water, and electrical systems from sensor data, flagging repairs before tenants file a request. Lease renewals, rent reminders, and maintenance follow-ups sent automatically via Smartlead sequences. Claude generates personalized tenant communications at scale. <strong>AppFolio's Realm-X reports 30-50% vacancy reduction. AI-assisted managers are handling portfolios that used to require 3x the staff.</strong>
+        </div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Brokerages</div>
-        <div class="tool-line-desc">VAPI qualifies inbound leads around the clock. Apollo and Clay build the outreach pipeline. Descript and 11Labs handle listing marketing at scale. One agent does the work of three.</div>
+
+      <div class="tl">
+        <div class="tl-name">RE Brokerages</div>
+        <div class="tl-desc">
+          Brokerages using agentic lead routing are converting 8-9x higher than those on a 4-hour callback model. Lindy AI agents research prospects from MLS listings and send personalized follow-ups based on buyer behavior automatically. Descript and 11Labs turn one property tour into a full week of listing content across TikTok, Reels, and YouTube. Claude writes all listing descriptions, email campaigns, and offer letters. Matterport creates 3D virtual tours that qualify buyers before an agent walks the door. <strong>In a post-NAR-settlement market, content velocity and response speed are the entire margin difference.</strong>
+        </div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Development</div>
-        <div class="tool-line-desc">Apollo and PhantomBuster surface off-market land deals. Beehiiv automates LP updates. Perplexity monitors zoning changes in real time. The firm moves faster on every decision.</div>
+
+      <div class="tl">
+        <div class="tl-name">Development Firms</div>
+        <div class="tl-desc">
+          Site screening that used to take 6-8 weeks of analyst time now runs in 3-5 days with AI handling geospatial data, zoning overlays, and criteria scoring. Hebbia and Primer pull key assumptions, comp sets, and risk flags from 200-page offering memorandums in under 30 minutes. Perplexity monitors zoning changes, environmental databases, and permit activity in real time. Beehiiv automates LP updates so investors stay informed without a single manual email. Claude drafts investment memos and community impact materials. <strong>CBRE found development teams using AI complete preliminary underwriting 3x faster — and that speed wins deals.</strong>
+        </div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Flipping</div>
-        <div class="tool-line-desc">Perplexity runs comp analysis. Manus tracks renovation milestones. Instantly runs buyer agent outreach before the paint dries. The operation scales without adding headcount.</div>
+
+      <div class="tl">
+        <div class="tl-name">House Flipping</div>
+        <div class="tl-desc">
+          HouseCanary and Perplexity run comp analysis across 130M+ properties in real time — no more pulling comps manually. Homesage.ai generates property condition assessments and renovation cost estimates automatically from photos. Manus tracks renovation milestones and flags delays before they compound. Smartlead runs buyer agent outreach sequences before the paint dries. <strong>AI lead scoring platforms like iSpeedToLead identify motivated sellers before they hit the market — the top 19% of scored leads generate 40% of wholesale outcomes.</strong>
+        </div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Mortgage</div>
-        <div class="tool-line-desc">VAPI handles inbound borrower calls. Manus runs loan processing workflows. Beehiiv sends rate alert sequences automatically. The pipeline fills itself.</div>
+
+      <div class="tl">
+        <div class="tl-name">Mortgage Brokerages</div>
+        <div class="tl-desc">
+          Speed to lead determines mortgage conversion — borrowers researching multiple lenders engage the first responder. MagicBlocks AI agents qualify leads 24/7, handle rate objections with empathy, and book consultations automatically. Beeline deployed an AI agent that generated 8x more completed applications than their previous human-led chat. Addy AI extracts and verifies income, bank statements, and tax forms — cutting loan file processing from days to hours. Homebot monitors your past client database for refinance triggers, rate drops, and equity thresholds, turning a dormant CRM into an active revenue engine. <strong>Lenders with AI handle 2-3x more loans from the same lead investment.</strong>
+        </div>
       </div>
     </div>
 
     <div class="math-box">
-      <div class="math-num">40%</div>
-      <div class="math-label"><strong>Jump in profitability</strong> from a 200 basis point EBITDA improvement on a 5% margin business. Bain: companies scaling AI across core workflows see 10-25% EBITDA improvement. The boomer sold a labor business. You own a system.</div>
+      <div class="math-n">40%</div>
+      <div class="math-l"><strong>Jump in profitability</strong> from a 200 basis point EBITDA improvement on a 5% margin business. Bain: companies scaling AI across core workflows see 10-25% EBITDA improvement. Build the system. Capture the spread.</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- PLAY 02 -->
-<section class="section">
-  <div class="section-label">Play 02</div>
-  <div class="section-title">Hard Asset Lending</div>
+<div class="wrap">
+  <div class="sec-label">Play 02</div>
+  <div class="sec-title">Hard Asset Lending</div>
 
   <div class="play">
-    <p class="play-sub">
-      First position lending backed by real estate. <strong>BlackRock gated $4.6B</strong> and investors couldn't get their money out. Hard assets don't have redemption limits. The capital sitting in large funds looking for yield is looking for exactly this — and most fund managers have no automated way to reach it.
+    <p class="play-body">
+      First position lending backed by real estate. <strong>BlackRock gated $4.6 billion</strong> and investors couldn't get their money out. Hard assets don't have redemption limits. The capital sitting in large funds looking for yield is looking for exactly this — and most fund managers have no automated way to reach it. Until now.
     </p>
 
-    <div class="tool-breakdown">
-      <div class="tool-breakdown-title">The Investor Pipeline Stack</div>
-      <div class="tool-line">
-        <div class="tool-line-name">Apollo</div>
-        <div class="tool-line-desc">Source GPs, Investment Managers, family office principals, and PE operators. Filter by title, AUM, and fund type. Export 500+ verified contacts in minutes.</div>
+    <div class="tool-box">
+      <div class="tool-box-label">The Investor Pipeline Stack</div>
+      <div class="tl">
+        <div class="tl-name">Grata</div>
+        <div class="tl-desc">Private market intelligence across 21M+ companies. Find GP and family office targets before they hit a broker. <strong>The deal nobody else sees yet.</strong></div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Clay</div>
-        <div class="tool-line-desc">Waterfall enrichment on every contact. Verified work emails. Intent signals scored. Upload Clay's Work Email column to Instantly — never Apollo's raw email field.</div>
+      <div class="tl">
+        <div class="tl-name">Apollo</div>
+        <div class="tl-desc">Source GPs, Investment Managers, hard money operators, real estate syndicators, and family office principals. 210M+ contacts with buying intent signals already scored.</div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Instantly</div>
-        <div class="tool-line-desc">4-email sequence. Text-only delivery. 25 sends/day per sender. Open and click tracking off for maximum deliverability. The sequence runs while you sleep.</div>
+      <div class="tl">
+        <div class="tl-name">Smartlead</div>
+        <div class="tl-desc">Unlimited mailboxes. AI warmup. Dynamic IP rotation. Text-only delivery. <strong>The sequence runs. The calendar fills. You live your life.</strong></div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Claude</div>
-        <div class="tool-line-desc">Writes the outreach copy. Each email addresses one objection — guaranteed returns, foreclosure protection, skin in the game, and scarcity close. Reads one-to-one. Not a template.</div>
+      <div class="tl">
+        <div class="tl-name">Claude</div>
+        <div class="tl-desc">Writes every email in the sequence. Each one addresses one objection — guaranteed returns, foreclosure protection, skin in the game, scarcity close. Reads like a person wrote it. Because one did.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-name">OpenClaw</div>
+        <div class="tl-desc">Monitors every reply. Categorizes intent. Drafts responses to hot leads for your approval. Updates Airtable. <strong>The pipeline works so you don't have to be at your desk.</strong></div>
       </div>
     </div>
 
     <div class="math-box">
-      <div class="math-num">$20</div>
-      <div class="math-label"><strong>Cost per meeting booked</strong> through the automated pipeline. Traditional IR teams charge $2,000+ per meeting. The system runs 24/7 for $214/month total. Math doesn't lie.</div>
+      <div class="math-n">92%</div>
+      <div class="math-l"><strong>Of boomer business exits end in closure — not sale.</strong> McKinsey. Not because they failed. Because nobody built the pipeline to reach the right buyer. This stack does. Automatically.</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- PLAY 03 -->
-<section class="section">
-  <div class="section-label">Play 03</div>
-  <div class="section-title">AI Modernization of RE Operations</div>
+<div class="wrap">
+  <div class="sec-label">Play 03</div>
+  <div class="sec-title">AI Modernization</div>
 
   <div class="play">
-    <p class="play-sub">
-      Real estate businesses in 2026 are still running on <strong>spreadsheets and owner relationships.</strong> Labor costs are 60-70% of revenue for service businesses. That's the margin hiding in plain sight. You don't need to buy to marginmaxx — you can charge for the implementation and own the system on retainer.
+    <p class="play-body">
+      You don't need to buy to marginmaxx. <strong>Charge for the implementation. Own the system on retainer.</strong> Real estate businesses in 2026 are still running on spreadsheets and owner relationships. The gap between what they spend to operate today and what they spend after the system is in — that's your margin. That's your retainer. That's your freedom.
     </p>
 
-    <div class="biz-list">
-      <div class="biz-tag">$2,500-$10K Setup Fee</div>
+    <div class="biz-tags">
+      <div class="biz-tag">$2,500–$10K Setup</div>
       <div class="biz-tag">Monthly Retainer</div>
-      <div class="biz-tag">$10-20K/Month at 3-5 Clients</div>
+      <div class="biz-tag">$10–20K/Month at 3–5 Clients</div>
     </div>
 
-    <div class="tool-breakdown">
-      <div class="tool-breakdown-title">The Implementation Playbook</div>
-      <div class="tool-line">
-        <div class="tool-line-name">Discovery</div>
-        <div class="tool-line-desc">Map every manual task the owner does in a week. Write them down. Ask Claude: how do I automate this? Every item that can be automated is billable scope.</div>
+    <div class="tool-box">
+      <div class="tool-box-label">The Three Levels — Know This Cold</div>
+      <div class="tl">
+        <div class="tl-name">Level 1 — Chat</div>
+        <div class="tl-desc"><strong>Claude · Perplexity.</strong> Ask a question, get an answer. Most owners stop here and call it AI. This is just the foundation. Bill it as the starting point, not the destination.</div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Layer 1</div>
-        <div class="tool-line-desc">Chat — Claude handles document generation, email drafting, and operations analysis. Most owners stop here and call it AI. This is just the foundation.</div>
+      <div class="tl">
+        <div class="tl-name">Level 2 — Automation</div>
+        <div class="tl-desc"><strong>n8n · Zapier.</strong> Built once, runs without you. Lease renewals. Follow ups. Reporting. Booking flows. All automated. This is where the real time savings happen — and where your retainer gets justified.</div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Layer 2</div>
-        <div class="tool-line-desc">Automation — Zapier and Make connect the tools. Built once, runs without them. This is where the real time savings happen. Lease renewals. Follow ups. Reporting. All automated.</div>
-      </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Layer 3</div>
-        <div class="tool-line-desc">Agents — Manus and VAPI. Give it a task and walk away. Inbound calls answered. Weekly reports generated. The owner is removed from daily operations entirely.</div>
+      <div class="tl">
+        <div class="tl-name">Level 3 — Agents</div>
+        <div class="tl-desc"><strong>Manus · VAPI · OpenClaw.</strong> Give it a task and walk away. Inbound calls answered. Weekly reports generated. The system runs the business. <strong>The owner gets their time back to actually live.</strong></div>
       </div>
     </div>
 
     <div class="math-box">
-      <div class="math-num">3x</div>
-      <div class="math-label"><strong>Minimum valuation expansion</strong> when owner dependency is removed and operations are systematized. The seller priced it on their personal involvement. You price it on the system. That's the trade.</div>
+      <div class="math-n">3x</div>
+      <div class="math-l"><strong>Minimum valuation expansion</strong> when owner dependency is replaced by a system. The seller priced it on their personal involvement. You price it on the system. That's the trade. That's marginmaxxing.</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- PLAY 04 -->
-<section class="section">
-  <div class="section-label">Play 04</div>
-  <div class="section-title">The Double Asset Play</div>
+<div class="wrap">
+  <div class="sec-label">Play 04</div>
+  <div class="sec-title">The Double Asset Play</div>
 
   <div class="play">
-    <p class="play-sub">
-      The boomer who owns both <strong>the building and the business inside it.</strong> A property management company with 300 units where the owner also owns six of those buildings. Two appreciating assets for the price of one conversation. First-time homebuyer average age is now 40 — up from 33 five years ago. Home prices are 6x median household income. <strong>Institutional investors own 30% of all single family homes.</strong> The people who can't afford the house can afford the business that finances, sells, and manages them.
+    <p class="play-body">
+      The boomer who owns <strong>the building and the business inside it.</strong> A property management company with 300 units where the owner also owns six of those buildings. Two appreciating assets for the price of one conversation. First-time homebuyer average age is now 40 — up from 33 five years ago. Home prices are 6x median income. <strong>You can't afford the house. You can afford the business that finances, sells, and manages them.</strong>
     </p>
 
-    <div class="tool-breakdown">
-      <div class="tool-breakdown-title">How to Find Double Asset Plays</div>
-      <div class="tool-line">
-        <div class="tool-line-name">Apollo</div>
-        <div class="tool-line-desc">Search property management company owners who are also listed as real estate investors. The overlap in title and industry filters surfaces the double asset opportunity.</div>
+    <div class="tool-box">
+      <div class="tool-box-label">How to Find Double Asset Plays</div>
+      <div class="tl">
+        <div class="tl-name">Grata</div>
+        <div class="tl-desc">Search property management owners who are also listed as real estate investors. The overlap in attributes surfaces the double asset play before anyone else sees it.</div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Perplexity</div>
-        <div class="tool-line-desc">Research the owner's public real estate holdings. Property records, LLC filings, county assessor data. Most own more than they advertise in any business listing.</div>
+      <div class="tl">
+        <div class="tl-name">Perplexity</div>
+        <div class="tl-desc">Research the owner's public real estate holdings in real time. Property records, LLC filings, county assessor data. Most own more than they advertise in any business listing.</div>
       </div>
-      <div class="tool-line">
-        <div class="tool-line-name">Claude</div>
-        <div class="tool-line-desc">Build the combined valuation model. Business at current multiple plus real estate at market value. Present both as a single acquisition conversation. Nobody else is doing this.</div>
+      <div class="tl">
+        <div class="tl-name">Claude</div>
+        <div class="tl-desc">Build the combined valuation model. Business at current multiple plus real estate at market value. Present both as a single acquisition conversation. <strong>Nobody else is doing this.</strong></div>
       </div>
     </div>
 
     <div class="math-box">
-      <div class="math-num">2x</div>
-      <div class="math-label"><strong>Assets acquired in one deal.</strong> The business generates cash flow. The real estate appreciates. The owner wanted out of both and didn't know how to sell them together. You did.</div>
+      <div class="math-n">2x</div>
+      <div class="math-l"><strong>Assets acquired in one deal.</strong> The business generates cash flow. The real estate appreciates. The owner wanted out of both and didn't know how to sell them together. You did.</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FULL STACK -->
-<section class="section">
-  <div class="section-label">The Complete Stack</div>
-  <div class="section-title">8 Tools. $214/Month.</div>
+<div class="wrap">
+  <div class="sec-label">The Complete Stack</div>
+  <div class="sec-title">Every Tool. What It Actually Does.</div>
 
-  <div class="cost-grid">
-    <div class="cost-card">
-      <div class="cost-card-label">Apollo.io</div>
-      <div class="cost-card-num">$49</div>
-      <div class="cost-card-sub">/month</div>
+  <div class="layer-label">Layer 1 — Source, Enrich, Verify</div>
+
+  <div class="tool">
+    <div class="tool-idx">01</div>
+    <div>
+      <div class="tool-name">Grata</div>
+      <div class="tool-desc">Private market intelligence. 21M+ private companies. <strong>Find boomer-owned real estate businesses before anyone else.</strong> AI reads company websites like an analyst — ownership signals, exit readiness, business model. The deal before it hits a broker.</div>
     </div>
-    <div class="cost-card">
-      <div class="cost-card-label">Clay</div>
-      <div class="cost-card-num">$49</div>
-      <div class="cost-card-sub">/month</div>
-    </div>
-    <div class="cost-card">
-      <div class="cost-card-label">Instantly</div>
-      <div class="cost-card-num">$37</div>
-      <div class="cost-card-sub">/month</div>
-    </div>
-    <div class="cost-card">
-      <div class="cost-card-label">Zapier + Rest</div>
-      <div class="cost-card-num">$79</div>
-      <div class="cost-card-sub">/month</div>
-    </div>
+    <div class="tool-badge">Find It</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">01</div>
-    <div class="tool-info">
+  <div class="tool">
+    <div class="tool-idx">02</div>
+    <div>
       <div class="tool-name">Apollo.io</div>
-      <div class="tool-desc">Source verified contacts at scale. GPs, Investment Managers, property management owners, mortgage brokerage principals. Always export from the Net New tab to avoid duplicates.</div>
+      <div class="tool-desc">210M+ contacts. GPs, Investment Managers, hard money operators, property management owners, real estate syndicators, family office principals. <strong>Buying intent signals flag who is actively researching right now.</strong> Always export from Net New tab.</div>
     </div>
-    <div class="tool-phase">Find It</div>
+    <div class="tool-badge">Find It</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">02</div>
-    <div class="tool-info">
-      <div class="tool-name">Clay</div>
-      <div class="tool-desc">Waterfall enrichment. Verified work emails. Intent signals. Upload Clay's Work Email column to Instantly — not Apollo's raw field. No bounces. No wasted sends.</div>
+  <div class="layer-label">Layer 2 — Outreach</div>
+
+  <div class="tool">
+    <div class="tool-idx">03</div>
+    <div>
+      <div class="tool-name">Smartlead</div>
+      <div class="tool-desc">Unlimited mailboxes. AI-powered warmup. Dynamic IP rotation. Unibox for all replies in one place. Text-only delivery. <strong>The sending infrastructure that keeps you out of spam at scale.</strong> 31,000+ businesses. There's a reason.</div>
     </div>
-    <div class="tool-phase">Find It</div>
+    <div class="tool-badge">Fund It</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">03</div>
-    <div class="tool-info">
-      <div class="tool-name">Instantly.ai</div>
-      <div class="tool-desc">Cold outreach at scale. Text-only delivery. 25 sends/day per sender. Open and click tracking off. Inbox-optimized. The sequence runs without you touching it.</div>
-    </div>
-    <div class="tool-phase">Fund It</div>
-  </div>
-
-  <div class="tool-row">
-    <div class="tool-num">04</div>
-    <div class="tool-info">
+  <div class="tool">
+    <div class="tool-idx">04</div>
+    <div>
       <div class="tool-name">Claude</div>
-      <div class="tool-desc">Writes outreach copy, audits operations, builds modernization roadmaps, and models deal economics. The intelligence layer across every phase of the system.</div>
+      <div class="tool-desc">Writes every email. Audits every operation. Builds every modernization roadmap. Models every deal. <strong>The intelligence layer across every phase.</strong> From first outreach to post-acquisition system design.</div>
     </div>
-    <div class="tool-phase">All Phases</div>
+    <div class="tool-badge">All Phases</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">05</div>
-    <div class="tool-info">
+  <div class="layer-label">Layer 3 — Automation</div>
+
+  <div class="tool">
+    <div class="tool-idx">05</div>
+    <div>
       <div class="tool-name">VAPI</div>
-      <div class="tool-desc">AI voice agent answering inbound calls 24/7. Property management lines, brokerage leads, fund inquiries. Answered, qualified, and routed without a human picking up the phone.</div>
+      <div class="tool-desc">AI voice agent answering inbound calls 24/7. Property management lines, brokerage leads, fund inquiries. Answered, qualified, routed. <strong>You never miss an opportunity — or a moment.</strong></div>
     </div>
-    <div class="tool-phase">Marginmaxx It</div>
+    <div class="tool-badge">Marginmaxx It</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">06</div>
-    <div class="tool-info">
-      <div class="tool-name">Manus</div>
-      <div class="tool-desc">Level 3 agent. Give it a task and walk away. Weekly Apollo searches, performance reports, off-market deal research, zoning change monitoring. Zero manual input.</div>
+  <div class="tool">
+    <div class="tool-idx">06</div>
+    <div>
+      <div class="tool-name">n8n</div>
+      <div class="tool-desc">Open-source automation with built-in AI agent nodes. Zero per-task pricing. Self-hosted. <strong>More powerful than Zapier for complex multi-step pipelines.</strong> Connects VAPI, Smartlead, and Airtable into one unified flow.</div>
     </div>
-    <div class="tool-phase">All Phases</div>
+    <div class="tool-badge">All Phases</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">07</div>
-    <div class="tool-info">
+  <div class="tool">
+    <div class="tool-idx">07</div>
+    <div>
       <div class="tool-name">Zapier</div>
-      <div class="tool-desc">The connective tissue. Calendly booking fires a zap. Airtable row created. You get notified. Set once. Never touch again.</div>
+      <div class="tool-desc">Simple, reliable triggers. Calendly booking fires instantly. Airtable row created. You get notified. <strong>Set once. Go live your life.</strong></div>
     </div>
-    <div class="tool-phase">Fund It</div>
+    <div class="tool-badge">Fund It</div>
   </div>
 
-  <div class="tool-row">
-    <div class="tool-num">08</div>
-    <div class="tool-info">
+  <div class="tool">
+    <div class="tool-idx">08</div>
+    <div>
       <div class="tool-name">Airtable</div>
-      <div class="tool-desc">The CRM. Every contact, call status, and capital committed in one place. Auto-updated from Calendly via Zapier. Always know where the pipeline stands.</div>
+      <div class="tool-desc">The CRM. Every investor contact, call status, and capital committed in one place. <strong>Auto-updated from Calendly via Zapier.</strong> Always know where the pipeline stands without touching it.</div>
     </div>
-    <div class="tool-phase">Fund It</div>
+    <div class="tool-badge">Fund It</div>
   </div>
-</section>
 
-<!-- END TO END -->
-<section class="section">
-  <div class="section-label">How It Runs</div>
-  <div class="section-title">End to End. No IR Team.</div>
+  <div class="layer-label">Layer 4 — Agents</div>
 
-  <ul class="step-list">
-    <li class="step-item">
-      <div class="step-num">01</div>
-      <div class="step-text"><strong>Apollo</strong> finds 500 qualified contacts — GP, Investment Manager, property management owner, or brokerage principal. Filter by title, industry, and location. Export from Net New tab.</div>
-    </li>
-    <li class="step-item">
-      <div class="step-num">02</div>
-      <div class="step-text"><strong>Clay</strong> enriches every contact and verifies the work email. Upload Clay's Work Email column to Instantly. Not Apollo's raw email field. This is the step most people skip and then wonder why nothing lands.</div>
-    </li>
-    <li class="step-item">
-      <div class="step-num">03</div>
-      <div class="step-text"><strong>Instantly</strong> sends the sequence. 4 emails. One objection per email. Text-only. 25 per day per sender. No open tracking. No click tracking. Maximum deliverability.</div>
-    </li>
-    <li class="step-item">
-      <div class="step-num">04</div>
-      <div class="step-text"><strong>Claude</strong> wrote the copy. Each email addresses a specific doubt — returns, security, alignment, scarcity. The sequence reads like a conversation, not a campaign.</div>
-    </li>
-    <li class="step-item">
-      <div class="step-num">05</div>
-      <div class="step-text"><strong>Calendly</strong> captures the booking. A Zapier zap fires. Airtable row created automatically. You get notified. Show up to the meeting. The system filled the calendar.</div>
-    </li>
-    <li class="step-item">
-      <div class="step-num">06</div>
-      <div class="step-text"><strong>Manus</strong> runs the weekly performance report. What's working. What's not. Where to double down. You review, approve, and move. The loop runs again.</div>
-    </li>
-  </ul>
-</section>
+  <div class="tool">
+    <div class="tool-idx">09</div>
+    <div>
+      <div class="tool-name">Manus</div>
+      <div class="tool-desc">Level 3 agent. Give it a task and walk away. Weekly Apollo and Grata searches, off-market deal research, performance reports, zoning change monitoring. <strong>Your time stays yours.</strong></div>
+    </div>
+    <div class="tool-badge">All Phases</div>
+  </div>
+
+  <div class="tool">
+    <div class="tool-idx">10</div>
+    <div>
+      <div class="tool-name">OpenClaw</div>
+      <div class="tool-desc">Autonomous inbox monitoring. Reads every reply, categorizes intent, drafts responses to hot leads for your approval, updates Airtable. <strong>The pipeline works so you don't have to be at your desk.</strong></div>
+    </div>
+    <div class="tool-badge">Fund It</div>
+  </div>
+
+  <div class="tool">
+    <div class="tool-idx">11</div>
+    <div>
+      <div class="tool-name">Perplexity</div>
+      <div class="tool-desc">Real-time research engine. Not a chatbot. Zoning changes, comp analysis, fund performance, market shifts — <strong>monitored as they happen.</strong> Every deal thesis runs on current data.</div>
+    </div>
+    <div class="tool-badge">Find It</div>
+  </div>
+
+  <div class="layer-label">Layer 5 — Content</div>
+
+  <div class="tool">
+    <div class="tool-idx">12</div>
+    <div>
+      <div class="tool-name">Beehiiv</div>
+      <div class="tool-desc">LP update and investor newsletter infrastructure. Deal flow updates, performance reports, market commentary — sent to your investor base on schedule. <strong>The tool that turns investors into evangelists between calls.</strong></div>
+    </div>
+    <div class="tool-badge">Fund It</div>
+  </div>
+
+  <div class="tool">
+    <div class="tool-idx">13</div>
+    <div>
+      <div class="tool-name">Descript</div>
+      <div class="tool-desc">Video content repurposing at scale. One video becomes TikTok, Reels, and YouTube automatically. <strong>Content attracts audience. Audience creates deal flow. Completed deal becomes the next video.</strong> The loop that feeds itself.</div>
+    </div>
+    <div class="tool-badge">Attract</div>
+  </div>
+
+  <div class="tool">
+    <div class="tool-idx">14</div>
+    <div>
+      <div class="tool-name">11Labs</div>
+      <div class="tool-desc">AI voice cloning and audio content. Listing marketing, fund pitch audio, brokerage content — produced at scale. <strong>One session. Unlimited output.</strong> Pairs with Descript for full content production.</div>
+    </div>
+    <div class="tool-badge">Marginmaxx It</div>
+  </div>
+
+</div>
+
+<!-- HOW IT RUNS -->
+<div class="wrap">
+  <div class="sec-label">How It Runs</div>
+  <div class="sec-title">End to End. No IR Team. No Agency.</div>
+
+  <div class="step">
+    <div class="step-n">01</div>
+    <div class="step-body"><strong>Grata</strong> surfaces boomer-owned real estate businesses and GP targets matching your thesis. Deal signals, ownership data, exit readiness — all before anyone else sees it.</div>
+  </div>
+  <div class="step">
+    <div class="step-n">02</div>
+    <div class="step-body"><strong>Apollo</strong> finds the decision maker. GP, Investment Manager, family office principal, property management owner. Buying intent signals tell you who is actively researching right now.</div>
+  </div>
+  <div class="step">
+    <div class="step-n">03</div>
+    <div class="step-body"><strong>Claude</strong> writes the sequence. Four emails. One objection per email. Reads like a person wrote it. Because one did.</div>
+  </div>
+  <div class="step">
+    <div class="step-n">04</div>
+    <div class="step-body"><strong>Smartlead</strong> sends it. Unlimited mailboxes. AI warmup. Text-only. The sequence runs while you're living your life.</div>
+  </div>
+  <div class="step">
+    <div class="step-n">05</div>
+    <div class="step-body"><strong>OpenClaw</strong> monitors every reply. Categorizes intent. Drafts responses for your approval. Hot leads get flagged. Everything else gets handled.</div>
+  </div>
+  <div class="step">
+    <div class="step-n">06</div>
+    <div class="step-body"><strong>Calendly</strong> captures the booking. Zapier fires. Airtable updates automatically. You get notified. The meeting is on your calendar.</div>
+  </div>
+  <div class="step">
+    <div class="step-n">07</div>
+    <div class="step-body"><strong>Manus</strong> runs the weekly report. What's working. What's not. Where to push harder. You review, approve, and move. The loop runs again.</div>
+  </div>
+</div>
+
+<div class="closing">
+  <div class="closing-txt">
+    <span>The boomer built a business on their time.</span><br>
+    You built a system that gives yours back.<br><br>
+    <span>Everyone chased the asset.</span><br>
+    You bought the freedom behind it.
+  </div>
+</div>
 
 <footer>
-  <p>© 2026 Copacetic Partners &nbsp;·&nbsp; <a href="https://copaceticpartners.com/stack">Back to Full Stack Guide</a> &nbsp;·&nbsp; <a href="https://copaceticpartners.com">copaceticpartners.com</a></p>
+  <span>© 2026 Copacetic Partners</span>
+  <span><a href="/stack">Full Stack Guide</a> &nbsp;·&nbsp; <a href="https://copaceticpartners.com">Home</a></span>
 </footer>
 
 </body>
