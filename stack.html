@@ -59,9 +59,9 @@
     .pq cite { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); font-style: normal; }
 
     /* REAL ESTATE ANGLES */
-    .angle { display: flex; gap: 28px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+    .angle { display: grid; grid-template-columns: 48px 1fr; gap: 24px; padding: 32px 0; border-bottom: 1px solid var(--border); align-items: start; }
     .angle:first-child { border-top: 1px solid var(--border); }
-    .angle-n { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: var(--green); min-width: 32px; padding-top: 4px; }
+    .angle-n { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: var(--green); padding-top: 4px; }
     .angle-title { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
     .angle-body { font-size: 14px; color: var(--gray); line-height: 1.7; }
     .angle-body strong { color: var(--white); }
@@ -173,7 +173,7 @@
   <!-- RIGHT: copy + form -->
   <div>
     <p style="font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:14px;">
-      The largest wealth transfer in history — $84 trillion — is happening right now. The businesses attached to that wealth are priced on what they cost to run today, <strong style="color:var(--white);">not what they're worth after you marginmaxx with AI.</strong>
+      The largest wealth transfer in history — $84 trillion — is happening right now.
     </p>
     <p style="font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:14px;">
       92% of these businesses close shop instead of sell. <strong style="color:var(--white);">Only 15% of owners actually know what their business is worth.</strong>
@@ -234,13 +234,13 @@
 
 <!-- REAL ESTATE ANGLES -->
 <div class="wrap" style="padding-top:0;">
-  <div class="sec-label">Four Real Estate Plays. One System.</div>
+  <div class="sec-label">Three Real Estate Plays. One System.</div>
 
   <div class="angle">
     <div class="angle-n">01</div>
     <div>
       <div class="angle-title">The Acquisition Play</div>
-      <div class="angle-body">Property management. Mortgage brokerages. Real estate brokerages. Development firms. All priced on labor — not what they're worth after the system is in. <strong>Property management sells at 3x-7x EBITDA.</strong> Owner dependency determines which end. Remove the owner, capture the spread. The most repeatable trade in this cycle.</div>
+      <div class="angle-body">Property management. Mortgage brokerages. Real estate brokerages. Development firms. All priced on labor — not what they're worth after the system is in. <strong>Property management sells at 3x-7x EBITDA.</strong> Owner dependency determines which end. Build the system around it and the multiple expands. The most repeatable trade in this cycle.</div>
     </div>
   </div>
 
@@ -265,66 +265,72 @@
 </div>
 </div>
 
-<!-- 3 LEVELS -->
+<!-- AI SECTION -->
 <div class="wrap">
-  <div class="sec-label">Three Levels of AI. Most People Never Leave Level One.</div>
-  <div class="levels">
-    <div class="level">
-      <div class="level-tag">Level 1 — Chat</div>
-      <div class="level-title">Most People Stop Here</div>
-      <div class="level-body">Ask a question. Get an answer. Most people use AI like a smarter Google and wonder why nothing changes in their business.</div>
-      <div class="level-tools">Claude · ChatGPT · Perplexity</div>
-    </div>
-    <div class="level">
-      <div class="level-tag">Level 2 — Automation</div>
-      <div class="level-title">Stop Asking. Start Connecting.</div>
-      <div class="level-body">Built once. Runs forever. Every booking, every update, every notification — handled. <strong>You get your evenings back.</strong></div>
-      <div class="level-tools">Zapier · n8n · Make.com</div>
-    </div>
-    <div class="level">
-      <div class="level-tag">Level 3 — Agents</div>
-      <div class="level-title">Give It a Task. Walk Away.</div>
-      <div class="level-body">The agent works. You live. VAPI takes the call. Manus does the research. OpenClaw manages the inbox. <strong>You come back to a full pipeline and an open calendar.</strong></div>
-      <div class="level-tools">Manus · VAPI · OpenClaw</div>
-    </div>
+  <div class="sec-label">On AI</div>
+  <div style="max-width:680px;">
+    <p style="font-size:18px;font-weight:600;color:var(--white);line-height:1.6;margin-bottom:20px;">Nobody fully understands what's coming. That's not a reason to wait — it's a reason to move.</p>
+    <p style="font-size:15px;color:var(--gray);line-height:1.8;margin-bottom:20px;">AI is unpredictable, fast-moving, and genuinely hard to keep up with. But the people who figure out how to use it intelligently — not to replace their judgment, but to extend it — are going to own the next decade of business. The ones who wait for certainty will watch it happen from the sideline.</p>
+    <p style="font-size:15px;color:var(--gray);line-height:1.8;margin-bottom:20px;">The goal is not to become an AI expert. The goal is to build a life where the system does the heavy lifting so you can be fully present for everything else. The deals. The relationships. The moments that actually matter.</p>
+    <p style="font-size:15px;color:var(--gray);line-height:1.8;">Most people are using AI like a smarter search engine. A small group is using it to build automated pipelines that run while they sleep, agents that manage their inbox, and systems that compound without them. <strong style="color:var(--white);">That gap is the biggest business opportunity available right now.</strong></p>
   </div>
 </div>
 
 <!-- TOOL STACK -->
-<div class="wrap" style="padding-top:0;">
-  <div class="sec-label">The Full Stack — Find It. Fund It. Marginmaxx It.</div>
-
-  <div style="font-size:13px;color:var(--gray);margin-bottom:36px;max-width:620px;line-height:1.7;">Five layers. Every layer matters. Skip one and the system breaks. Most people have one tool and call it a strategy.</div>
-
-  <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:16px;">Layer 1 — Source, Enrich, Verify</div>
-
-  <div class="tool">
-    <div class="tool-idx">01</div>
-    <div>
-      <div class="tool-name">Grata <span class="new-tag">New</span></div>
-      <div class="tool-desc">Private market intelligence. <strong>21M+ private companies.</strong> Find boomer-owned property management firms, mortgage brokerages, and real estate businesses before anyone else sees them. AI reads company websites like an analyst — interpreting business model, ownership signals, and exit readiness. This is how you find the deal before it hits a broker.</div>
-    </div>
-    <div class="tool-badge">Find It</div>
+<div class="wrap">
+  <div class="sec-label">The Stack</div>
+  <div style="max-width:680px;margin-bottom:40px;">
+    <p style="font-size:15px;color:var(--gray);line-height:1.8;">These are the tools that run the play. Each one earns its place. The free playbook breaks down exactly how they connect.</p>
   </div>
 
-  <div class="tool">
-    <div class="tool-idx">02</div>
-    <div>
-      <div class="tool-name">Apollo.io</div>
-      <div class="tool-desc">Contact sourcing at scale. GPs, Investment Managers, family office principals, hard money fund operators, real estate syndicators. <strong>210M+ contacts. 65+ filters.</strong> Buying intent signals flag who is actively researching right now. Always export from the Net New tab — no duplicates.</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);">
+
+    <div style="background:var(--card);padding:24px 28px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Source</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;text-transform:uppercase;margin-bottom:6px;">Grata + Apollo</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.6;">Find the deal before it hits a broker. Find the investor before anyone else reaches them.</div>
     </div>
-    <div class="tool-badge">Find It</div>
+
+    <div style="background:var(--card);padding:24px 28px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Outreach</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;text-transform:uppercase;margin-bottom:6px;">Smartlead + Claude</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.6;">The sequence writes itself. The calendar fills itself. You show up to the conversation that matters.</div>
+    </div>
+
+    <div style="background:var(--card);padding:24px 28px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Automation</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;text-transform:uppercase;margin-bottom:6px;">n8n + Zapier + VAPI</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.6;">Built once. Runs without you. Every call answered. Every update logged. Every loop closed.</div>
+    </div>
+
+    <div style="background:var(--card);padding:24px 28px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Agents</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;text-transform:uppercase;margin-bottom:6px;">Manus + OpenClaw</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.6;">Give it a task. Walk away. Come back to results. This is the invisible workforce that runs while you live.</div>
+    </div>
+
+    <div style="background:var(--card);padding:24px 28px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Intelligence</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;text-transform:uppercase;margin-bottom:6px;">Perplexity + Airtable</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.6;">Real-time market data and a CRM that updates itself. Always know where the market is and where your pipeline stands.</div>
+    </div>
+
+    <div style="background:var(--card);padding:24px 28px;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Content</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;text-transform:uppercase;margin-bottom:6px;">Descript + Beehiiv</div>
+      <div style="font-size:13px;color:var(--gray);line-height:1.6;">The content flywheel that builds the audience that builds the deal flow. One video. One newsletter. Compounding indefinitely.</div>
+    </div>
+
   </div>
-
-
+</div>
 
 <!-- CLOSING -->
 <div class="closing">
-  <div class="closing-txt">
-    <span>The boomer built a business on their time.</span><br>
-    You built a system that gives yours back.<br><br>
-    <span>Everyone chased the asset.</span><br>
-    You bought the freedom behind it.
+  <div class="closing-txt" style="max-width:700px;">
+    <span>The window is open.</span><br>
+    The businesses are there. The tools exist. The system is buildable.<br><br>
+    <span>The only question is whether you show up</span><br>
+    before someone else does.
   </div>
 </div>
 
