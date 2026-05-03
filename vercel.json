@@ -1,6 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/stack", "destination": "/stack.html" },
-    { "source": "/investor-tools", "destination": "/investor-tools.html" }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
