@@ -27,7 +27,7 @@
     .nav-links a:hover { color: var(--white); }
 
     /* HERO */
-    .hero { padding: 100px 48px 60px; max-width: 1000px; margin: 0 auto; }
+    .hero { max-width: 1000px; margin: 0 auto; }
     .eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 28px; opacity: 0; animation: up 0.6s ease 0.1s both; }
     .hero-hl { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(52px, 8.5vw, 100px); line-height: 0.93; text-transform: uppercase; margin-bottom: 36px; opacity: 0; animation: up 0.7s ease 0.2s both; }
     .hero-hl .g { color: var(--green); }
@@ -117,7 +117,7 @@
 
     @media (max-width: 700px) {
       nav { padding: 18px 20px; }
-      .hero { padding: 64px 20px 40px; }
+      .hero { padding: 48px 20px 40px; grid-template-columns: 1fr !important; gap: 24px !important; }
       .wrap { padding: 56px 20px; }
       .phases { grid-template-columns: 1fr; }
       .levels { grid-template-columns: 1fr; }
@@ -163,17 +163,6 @@
   <div class="stat"><div class="stat-n">92%</div><div class="stat-l">Boomer exits end in closure not sale</div></div>
   <div class="stat"><div class="stat-n">$5T</div><div class="stat-l">Enterprise value hitting the market by 2035 — McKinsey</div></div>
   <div class="stat"><div class="stat-n">10-25%</div><div class="stat-l">EBITDA improvement from AI across core workflows — Bain</div></div>
-</div>
-
-<!-- EMAIL FORM -->
-<div class="form-wrap">
-  <div class="form-hl">Get the full<br>playbook. Free.</div>
-  <p class="form-sub">The complete real estate marginmaxxing playbook — four plays, every tool, the exact math on why this is the trade of the decade.</p>
-  <div class="form-row">
-    <input type="email" class="f-input" id="emailInput" placeholder="your@email.com">
-    <button class="f-btn" onclick="go()">Send It</button>
-  </div>
-  <div class="f-note" id="note">No spam. One email. Real value.</div>
 </div>
 
 <!-- THREE PHASES -->
