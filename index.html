@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copacetic Partners</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #e8d5b0;
+      --cream-dim: rgba(232, 213, 176, 0.45);
+    }
+    html, body { height: 100%; width: 100%; }
+    body {
+      background-image: url("/bg.jpg");
+      background-size: 200px 200px;
+      background-repeat: repeat;
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-wrap {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: fadeUp 1.4s ease 0.2s forwards;
+    }
+    .logo-wrap img {
+      width: clamp(220px, 36vw, 420px);
+      display: block;
+      border: 1px solid rgba(232,213,176,0.45);
+      padding: 16px;
+    }
+    .tagline {
+      margin-top: 32px;
+      font-size: 13px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 0.7s forwards;
+    }
+    .divider {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, transparent, var(--cream-dim), transparent);
+      margin: 36px auto 0;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.1s forwards;
+    }
+    .gate {
+      margin-top: 32px;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.3s forwards;
+    }
+    .gate-row {
+      display: flex;
+      width: clamp(280px, 40vw, 440px);
+    }
+    input[type="email"] {
+      flex: 1;
+      background: transparent;
+      border: 1px solid rgba(232,213,176,0.45);
+      border-right: none;
+      padding: 13px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: var(--cream);
+      outline: none;
+      font-style: italic;
+      transition: border-color 0.3s;
+    }
+    input[type="email"]::placeholder { color: rgba(232,213,176,0.45); }
+    input[type="email"]:focus { border-color: var(--cream); }
+    button {
+      background: transparent;
+      border: 1px solid rgba(232,213,176,0.45);
+      padding: 13px 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    button:hover { background: rgba(232,213,176,0.08); border-color: var(--cream); }
+    .thankyou {
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(232,213,176,0.6);
+      font-style: italic;
+      text-align: center;
+    }
+    .error {
+      margin-top: 10px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(232,213,176,0.5);
+      font-style: italic;
+      text-align: center;
+    }
+    footer {
+      position: fixed;
+      bottom: 24px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: rgba(232,213,176,0.4);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="logo-wrap">
+      <img src="/logo.jpg" alt="Copacetic Partners">
+    </div>
+    <div class="tagline">Parent company of NextWave AI &amp; Rendezblu</div>
+    <div class="divider"></div>
+    <div id="formWrap">
+      <div class="gate-row">
+        <input type="email" id="emailInput" placeholder="Email">
+        <button onclick="submit()">Inquire</button>
+      </div>
+      <div class="error" id="errMsg" style="display:none;">Please enter a valid email address.</div>
+    </div>
+  </div>
+  <footer>© 2026 Copacetic Partners</footer>
+  <script>
+    function submit() {
+      var val = document.getElementById('emailInput').value;
+      var err = document.getElementById('errMsg');
+      if (!val || val.indexOf('@') === -1 || val.indexOf('.') === -1) {
+        err.style.display = 'block';
+        return;
+      }
+      err.style.display = 'none';
+      document.getElementById('formWrap').innerHTML = '<div class="thankyou">Thank you — we\'ll be in touch.</div>';
+      var fd = new FormData();
+      fd.append('email', val);
+      fetch('https://formspree.io/f/xaqdrjep', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
+    }
+    document.getElementById('emailInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') submit();
+    });
+  </script>
+</body>
+</html>
